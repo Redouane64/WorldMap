@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -22,20 +23,17 @@ namespace World
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private Style pathStyle;
 
 		public MainWindow()
 		{
 			InitializeComponent();
 
-			pathStyle = (Style) Application.Current.Resources["CountryPathStyle"];
+			ItemsControl countriesItemsControl = (ItemsControl)mainGrid.Children.OfType<ScrollViewer>().First().Content;
 
-			foreach (Path countryPath in ((Grid) ((ScrollViewer) mainGrid.Children[0]).Content).Children)
+			foreach (Path pathItem in countriesItemsControl.Items.OfType<Path>())
 			{
-				countryPath.MouseEnter += Path_OnMouseEnter;
-				countryPath.MouseLeave += Path_OnMouseLeave;
-
-				countryPath.Style = pathStyle;
+				pathItem.MouseEnter += Path_OnMouseEnter;
+				pathItem.MouseLeave += Path_OnMouseLeave;
 			}
 			
 		}

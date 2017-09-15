@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<SolidColorBrush x:Key="MapBackgroundBrush">LightBlue</SolidColorBrush>
+	<SolidColorBrush x:Key="PathStrokeBrush" Color="Black"></SolidColorBrush>
+	<SolidColorBrush x:Key="PathFillBrush" Color="#FFF2F2F2"></SolidColorBrush>
+
+	<Color x:Key="MouseEnterPathStrokeColor">Brown</Color>
+	<Color x:Key="MouseEnterPathFillColor">Coral</Color>
+	
+</ResourceDictionary>

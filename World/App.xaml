@@ -1,13 +1,55 @@
 ﻿<Application x:Class="World.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:World"
-             StartupUri="MainWindow.xaml">
+			 StartupUri="MapWindow.xaml">
 	<Application.Resources>
 		<ResourceDictionary>
+
 			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="LightThemeDictionary.xaml"></ResourceDictionary>
 				<ResourceDictionary Source="WorldMapDictionary.xaml"></ResourceDictionary>
 			</ResourceDictionary.MergedDictionaries>
+
+			<Style TargetType="{x:Type Path}">
+				<Style.Triggers>
+					<EventTrigger RoutedEvent="MouseEnter">
+						<BeginStoryboard>
+							<Storyboard>
+								<ColorAnimation Storyboard.TargetProperty="Stroke.Color"
+												To="{StaticResource MouseEnterPathStrokeColor}"
+												Duration="0:0:0.1">
+								</ColorAnimation>
+								<ColorAnimation Storyboard.TargetProperty="Fill.Color"
+												To="{StaticResource MouseEnterPathFillColor}"
+												Duration="0:0:0.1">
+								</ColorAnimation>
+								<DoubleAnimation Storyboard.TargetProperty="StrokeThickness"
+												 To="3"
+												 Duration="0:0:0.075">
+
+								</DoubleAnimation>
+							</Storyboard>
+						</BeginStoryboard>
+					</EventTrigger>
+					<EventTrigger RoutedEvent="MouseLeave">
+						<BeginStoryboard>
+							<Storyboard>
+								<ColorAnimation Storyboard.TargetProperty="Stroke.Color"
+												Duration="0:0:0.1">
+								</ColorAnimation>
+								<ColorAnimation Storyboard.TargetProperty="Fill.Color"
+												Duration="0:0:0.1">
+								</ColorAnimation>
+								<DoubleAnimation Storyboard.TargetProperty="StrokeThickness"
+												 Duration="0:0:0.075">
+								</DoubleAnimation>
+							</Storyboard>
+						</BeginStoryboard>
+					</EventTrigger>
+				</Style.Triggers>
+			</Style>
+			
 		</ResourceDictionary>
+		
 	</Application.Resources>
 </Application>
