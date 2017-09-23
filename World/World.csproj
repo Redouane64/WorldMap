@@ -105,5 +105,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\World.Data\World.Data.csproj">
+      <Project>{84710441-D853-445A-B69F-2947C4238072}</Project>
+      <Name>World.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\World.Common\World.Common.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

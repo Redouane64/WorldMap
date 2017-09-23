@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="World" Height="512" Width="1024">
 	<Grid x:Name="mainGrid" Background="{StaticResource MapBackgroundBrush}">
-		
+
 		<ScrollViewer HorizontalScrollBarVisibility="Auto"
 					  VerticalScrollBarVisibility="Auto"
 					  IsDeferredScrollingEnabled="True">
@@ -15,6 +15,36 @@
 				<Binding Source="{StaticResource worldMap}" />
 			</ScrollViewer.Content>
 		</ScrollViewer>
+		
+		<Border x:Name="infoAreaBorder"
+				Margin="16"
+				Padding="0,8"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Left"
+				CornerRadius="4"
+				Width="200"
+				Background="#10FF1212">
+			<StackPanel Margin="4">
+				<TextBlock x:Name="nameTextBlock"
+						   Margin="8,0"
+						   FontSize="20"
+						   FontWeight="Bold"
+						   TextWrapping="Wrap"
+						   Text="{Binding Name}">N/A</TextBlock>
+				<Label FontSize="15"
+					   FontWeight="Light">Population</Label>
+				<TextBlock x:Name="populationTextBlock"
+						   Margin="8,0"
+						   FontSize="14"
+						   Text="{Binding Population}">N/A</TextBlock>
+				<Label FontSize="15"
+				       FontWeight="Light">Area</Label>
+				<TextBlock x:Name="areaTextBlock"
+				           Margin="8,0"
+				           FontSize="14"
+						   Text="{Binding Area}">N/A</TextBlock>
+			</StackPanel>
+		</Border>
 		
 	</Grid>
 </Window>

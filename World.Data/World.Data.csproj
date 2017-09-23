@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>World countries data repositories.</Description>
+    <Authors>Redouane Sobaihi</Authors>
+    <Company />
+    <Version>1.2.3</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\City.cs" />
+    <Compile Remove="Models\Continent.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Models\City.cs" />
+    <None Include="Models\Continent.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj" />
+  </ItemGroup>
+  
+</Project>
