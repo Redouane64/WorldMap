@@ -30,19 +30,21 @@
 						   FontSize="20"
 						   FontWeight="Bold"
 						   TextWrapping="Wrap"
-						   Text="{Binding Name}">N/A</TextBlock>
+						   Text="{Binding Name}"></TextBlock>
 				<Label FontSize="15"
 					   FontWeight="Light">Population</Label>
 				<TextBlock x:Name="populationTextBlock"
 						   Margin="8,0"
 						   FontSize="14"
-						   Text="{Binding Population}">N/A</TextBlock>
+						   FontWeight="SemiBold"
+						   Text="{Binding Population}"></TextBlock>
 				<Label FontSize="15"
 				       FontWeight="Light">Area</Label>
 				<TextBlock x:Name="areaTextBlock"
 				           Margin="8,0"
 				           FontSize="14"
-						   Text="{Binding Area}">N/A</TextBlock>
+						   FontWeight="SemiBold"
+						   Text="{Binding Area}"></TextBlock>
 			</StackPanel>
 		</Border>
 		

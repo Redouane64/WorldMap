@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Data;
+	using System.Data.SQLite;
 
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -14,7 +15,7 @@
 		[TestMethod]
 		public void ShouldGetCountryByKey()
 		{
-			IDbConnection connection = null; // TO DO: use SqliteDbConnection from package Microsoft.Data.Sqlite
+			IDbConnection connection = new SQLiteConnection("Data Source=world.db");
 			var repository = new WorldRepository(connection);
 			connection.Open();
 
