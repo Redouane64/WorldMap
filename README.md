@@ -7,7 +7,7 @@ The goal of this project is to employ data queried from data source (in this exa
 ### Features
 - [x] Interactive map.
 - [ ] Switch between Dark and Light theme.
-- [ ] Display of countries data.
+- [x] Display of countries data.
 
 ### Screenshot
 ![Screenshot](https://github.com/Redouane64/WPF.World/blob/master/screenshot.png)
