@@ -10,6 +10,18 @@
 				<ResourceDictionary Source="WorldMapDictionary.xaml"></ResourceDictionary>
 			</ResourceDictionary.MergedDictionaries>
 
+			<DoubleAnimation x:Key="opacityFadeInAnimation"
+							 To="1"
+							 Storyboard.TargetProperty="Opacity"
+							 FillBehavior="HoldEnd"
+							 Duration="0:0:0.2">
+			</DoubleAnimation>
+
+			<DoubleAnimation x:Key="opacityFadeOutAnimation"
+							 Storyboard.TargetProperty="Opacity"
+							 Duration="0:0:0.1">
+			</DoubleAnimation>
+			
 			<Style TargetType="{x:Type Path}">
 				<Style.Triggers>
 					<EventTrigger RoutedEvent="MouseEnter">
