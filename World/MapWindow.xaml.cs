@@ -26,12 +26,12 @@ namespace World
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MapWindow : Window
 	{
 		private readonly SqliteConnection connection;
 		private readonly WorldRepository worldRepository;
 
-		public MainWindow()
+		public MapWindow()
 		{
 			InitializeComponent();
 
@@ -42,10 +42,22 @@ namespace World
 			foreach (Path pathItem in countriesItemsControl.Items.OfType<Path>())
 			{
 				pathItem.MouseEnter += Path_OnMouseEnter;
+				pathItem.MouseLeave += Path_OnMouseLeave;
 			}
 
 			connection = new SqliteConnection("Data Source=Assets/world.db");
 			worldRepository = new WorldRepository(connection);
+		}
+
+		private void Path_OnMouseLeave(object sender, MouseEventArgs e)
+		{
+			if (infoAreaBorder.DataContext == null)
+				return;
+
+			infoAreaBorder.BeginAnimation(Border.OpacityProperty, new DoubleAnimation
+			{
+				Duration = new Duration(TimeSpan.FromSeconds(0.25)),
+			});
 		}
 
 		private async void Path_OnMouseEnter(object sender, MouseEventArgs mouseEventArgs)
@@ -61,6 +73,13 @@ namespace World
 			if(country != null)
 			{
 				infoAreaBorder.DataContext = country;
+
+				infoAreaBorder.BeginAnimation(Border.OpacityProperty, new DoubleAnimation
+				{
+					To = 1,
+					Duration = new Duration(TimeSpan.FromSeconds(0.4)),
+					FillBehavior = FillBehavior.HoldEnd
+				});
 			}
 
 			connection.Close();

@@ -1,4 +1,4 @@
-﻿<Window x:Class="World.MainWindow"
+﻿<Window x:Class="World.MapWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -17,6 +17,7 @@
 		</ScrollViewer>
 		
 		<Border x:Name="infoAreaBorder"
+				Opacity="0"
 				Margin="16"
 				Padding="0,8"
 				VerticalAlignment="Top"
