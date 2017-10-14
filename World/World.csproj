@@ -124,13 +124,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\World.Data.Repositories\World.Data.Repositories.csproj">
-      <Project>{2b72f495-6f55-4d66-b92c-56ebfa55d5a7}</Project>
-      <Name>World.Data.Repositories</Name>
+    <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj">
+      <Project>{3EF36995-81CE-492C-B04D-63710A9ABFC5}</Project>
+      <Name>World.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\World.Data\World.Data.csproj">
-      <Project>{84710441-D853-445A-B69F-2947C4238072}</Project>
-      <Name>World.Data</Name>
+    <ProjectReference Include="..\World.Data.Xml\World.Data.Xml.csproj">
+      <Project>{145600f6-d392-4bf5-8728-dd40ca9943a5}</Project>
+      <Name>World.Data.Xml</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\World.Common\World.Common.projitems" Label="Shared" />
