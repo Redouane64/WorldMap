@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "World.Data.Xml", "World.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "World.Data.Models", "World.Data.Models\World.Data.Models.csproj", "{3EF36995-81CE-492C-B04D-63710A9ABFC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "World.Data.Xml.Tests", "Tests\World.Data.Xml.Tests\World.Data.Xml.Tests.csproj", "{F8386561-71DC-4D43-B80C-43EB53D2337A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		World.Common\World.Common.projitems*{6e929f6a-1d6c-435c-ad42-12ac9d9918d2}*SharedItemsImports = 4
@@ -59,12 +61,17 @@ Global
 		{3EF36995-81CE-492C-B04D-63710A9ABFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF36995-81CE-492C-B04D-63710A9ABFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF36995-81CE-492C-B04D-63710A9ABFC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8386561-71DC-4D43-B80C-43EB53D2337A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8386561-71DC-4D43-B80C-43EB53D2337A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8386561-71DC-4D43-B80C-43EB53D2337A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8386561-71DC-4D43-B80C-43EB53D2337A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BEB38C8E-1FDA-4C76-92DB-92B5B4AEC98C} = {2919D53F-8824-46A1-9008-F0ACE45AF91F}
+		{F8386561-71DC-4D43-B80C-43EB53D2337A} = {2919D53F-8824-46A1-9008-F0ACE45AF91F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C191235-ED98-4A25-8290-90A17FAD9963}
