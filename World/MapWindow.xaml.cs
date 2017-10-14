@@ -20,6 +20,8 @@ namespace World
 	public partial class MapWindow : Window
 	{
 		private readonly WorldRepository worldRepository;
+		private readonly DoubleAnimation fadeInAnimation;
+		private readonly DoubleAnimation fadeOutAnimation;
 
 		public MapWindow()
 		{
@@ -36,6 +38,8 @@ namespace World
 			}
 
 			worldRepository = new WorldRepository("Assets/countries.xml");
+			fadeInAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeInAnimation"];
+			fadeOutAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeOutAnimation"];
 		}
 
 		private void Path_OnMouseLeave(object sender, MouseEventArgs e)
@@ -43,10 +47,7 @@ namespace World
 			if (infoAreaBorder.DataContext == null)
 				return;
 
-			infoAreaBorder.BeginAnimation(Border.OpacityProperty, new DoubleAnimation
-			{
-				Duration = new Duration(TimeSpan.FromSeconds(0.25)),
-			});
+			infoAreaBorder.BeginAnimation(Border.OpacityProperty, fadeOutAnimation);
 		}
 
 		private async void Path_OnMouseEnter(object sender, MouseEventArgs mouseEventArgs)
@@ -57,17 +58,10 @@ namespace World
 			var watch = Stopwatch.StartNew();
 #endif
 			var country = await Task.FromResult(worldRepository.GetByKey(path.Name.ToLower()));
-
 			if(country != null)
 			{
 				infoAreaBorder.DataContext = country;
-
-				infoAreaBorder.BeginAnimation(Border.OpacityProperty, new DoubleAnimation
-				{
-					To = 1,
-					Duration = new Duration(TimeSpan.FromSeconds(0.4)),
-					FillBehavior = FillBehavior.HoldEnd
-				});
+				infoAreaBorder.BeginAnimation(Border.OpacityProperty, fadeInAnimation);
 			}
 #if DEBUG
 			watch.Start();
