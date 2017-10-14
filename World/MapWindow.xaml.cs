@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using World.Data.Xml;
+using System.Windows.Media.Animation;
+using System;
 
 #if DEBUG
 using System.Diagnostics;
