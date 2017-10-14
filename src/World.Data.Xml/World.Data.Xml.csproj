@@ -4,8 +4,6 @@
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
 
-  <Import Project="..\World.Common\World.Common.projitems" Label="Shared" />
-
   <ItemGroup>
     <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj" />
     <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj" />
