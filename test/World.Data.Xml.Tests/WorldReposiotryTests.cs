@@ -11,13 +11,13 @@ namespace World.Data.Xml.Tests
         [Fact]
         public void CRUD()
         {
-			WorldRepository repository = new WorldRepository("Assets/countries.xml");
+			CountriesRepository repository = new CountriesRepository("Assets/countries.xml");
 
 			Assert.NotNull(repository);
 			RetrieveByKey(repository);
         }
 
-		private void RetrieveByKey(WorldRepository repository)
+		private void RetrieveByKey(CountriesRepository repository)
 		{
 			string key = "dz";
 			string expected_code = "ALG";

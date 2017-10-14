@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace World.Data.Xml
 {
-	public class WorldRepository : IRepository<long, Country>
+	public class CountriesRepository : IRepository<long, Country>
 	{
 		private readonly string _filename;
 
@@ -16,7 +16,7 @@ namespace World.Data.Xml
 		/// Create instance of world countries repository from XML data source.
 		/// </summary>
 		/// <param name="filename">XML file.</param>
-		public WorldRepository(string filename)
+		public CountriesRepository(string filename)
 		{
 			_filename = filename;
 		}

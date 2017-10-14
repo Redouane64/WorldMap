@@ -7,7 +7,7 @@ using System.Linq;
 namespace World.Data.Repositories
 {
 
-	public class CountriesRepository : Repository<long, Country>
+	public partial class CountriesRepository : Repository<long, Country>
 	{
 
 		public CountriesRepository(IDbConnection connection) 

@@ -4,13 +4,13 @@ using World.Data.Models;
 
 namespace World.Data.Repositories
 {
-	public class WorldRepository : CountriesRepository
+	public partial class CountriesRepository
 	{
-		public WorldRepository(IDbConnection connection)
-			: base(connection)
-		{
-		}
-
+		/// <summary>
+		/// Get country by key.
+		/// </summary>
+		/// <param name="key">Country key.</param>
+		/// <returns>Country instance that corresponds to the provided key or Null if no country found.</returns>
 		public Country GetByKey(string key)
 		{
 			using (var command = Connection.CreateCommand())

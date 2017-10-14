@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\World.Data.Xml\World.Data.Xml.csproj" />
+    <ProjectReference Include="..\..\src\World.Data.Xml\World.Data.Xml.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\World.Common\World.Common.projitems" Label="Shared" />
+  <Import Project="..\..\src\World.Common\World.Common.projitems" Label="Shared" />
 
 </Project>

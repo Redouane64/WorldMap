@@ -19,7 +19,7 @@ namespace World
 	/// </summary>
 	public partial class MapWindow : Window
 	{
-		private readonly WorldRepository worldRepository;
+		private readonly CountriesRepository worldRepository;
 		private readonly DoubleAnimation fadeInAnimation;
 		private readonly DoubleAnimation fadeOutAnimation;
 
@@ -37,7 +37,7 @@ namespace World
 				pathItem.MouseLeave += Path_OnMouseLeave;
 			}
 
-			worldRepository = new WorldRepository("Assets/countries.xml");
+			worldRepository = new CountriesRepository("Assets/countries.xml");
 			fadeInAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeInAnimation"];
 			fadeOutAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeOutAnimation"];
 		}
