@@ -6,21 +6,12 @@
     <Description>World countries data repositories.</Description>
     <Authors>Redouane Sobaihi</Authors>
     <Company />
-    <Version>1.2.3</Version>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\City.cs" />
-    <Compile Remove="Models\Continent.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Models\City.cs" />
-    <None Include="Models\Continent.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj" />
+    <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj" />
   </ItemGroup>
   
 </Project>
