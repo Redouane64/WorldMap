@@ -15,7 +15,7 @@
 				<Binding Source="{StaticResource worldMap}" />
 			</ScrollViewer.Content>
 		</ScrollViewer>
-		
+
 		<Border x:Name="infoAreaBorder"
 				Opacity="0"
 				Margin="16"
