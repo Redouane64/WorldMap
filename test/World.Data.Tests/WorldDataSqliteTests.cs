@@ -1,5 +1,6 @@
 using Microsoft.Data.Sqlite;
 using System.Data;
+using World.Data.Common;
 using World.Data.Models;
 using World.Data.Repositories;
 using Xunit;
@@ -12,7 +13,7 @@ namespace World.Data.Tests
 		public void ShouldGetCountryByKey()
 		{
 			IDbConnection connection = new SqliteConnection("Data Source=Assets/world.db");
-			var repository = new CountriesRepository(connection);
+			ICountriesRepository repository = new CountriesRepository(connection);
 			connection.Open();
 
 			string expected_country_name = "Algeria";

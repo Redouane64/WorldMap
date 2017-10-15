@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using RepositoryBase;
 using World.Data.Models;
 using System.Xml.Linq;
 using System.Linq;
+using World.Data.Common;
 
 namespace World.Data.Xml
 {
-	public class CountriesRepository : IRepository<long, Country>
+	public class CountriesRepository : ICountriesRepository
 	{
 		private readonly string _filename;
 
@@ -41,11 +41,6 @@ namespace World.Data.Xml
 		/// </summary>
 		public IEnumerable<Country> Find(Expression<Func<Country, bool>> predicate) => throw new NotImplementedException();
 
-		/// <summary>
-		/// Get country by key.
-		/// </summary>
-		/// <param name="key">Country key.</param>
-		/// <returns>Country instance that corresponds to the provided key or Null if no country found.</returns>
 		public Country GetByKey(string key)
 		{
 			XDocument xDocument = XDocument.Load(_filename);

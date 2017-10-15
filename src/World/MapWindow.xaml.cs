@@ -7,6 +7,7 @@ using System.Windows.Shapes;
 using World.Data.Xml;
 using System.Windows.Media.Animation;
 using System;
+using World.Data.Common;
 
 #if DEBUG
 using System.Diagnostics;
@@ -19,7 +20,7 @@ namespace World
 	/// </summary>
 	public partial class MapWindow : Window
 	{
-		private readonly CountriesRepository worldRepository;
+		private readonly ICountriesRepository worldRepository;
 		private readonly DoubleAnimation fadeInAnimation;
 		private readonly DoubleAnimation fadeOutAnimation;
 

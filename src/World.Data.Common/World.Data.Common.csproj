@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Description>Common data layer that various data sources must implement.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj" />
+    <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj" />
+  </ItemGroup>
+
+</Project>

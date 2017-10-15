@@ -1,16 +1,11 @@
 ﻿using System.Linq;
-using System.Data;
 using World.Data.Models;
+using World.Data.Common;
 
 namespace World.Data.Repositories
 {
-	public partial class CountriesRepository
+	public partial class CountriesRepository : ICountriesRepository
 	{
-		/// <summary>
-		/// Get country by key.
-		/// </summary>
-		/// <param name="key">Country key.</param>
-		/// <returns>Country instance that corresponds to the provided key or Null if no country found.</returns>
 		public Country GetByKey(string key)
 		{
 			using (var command = Connection.CreateCommand())

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using World.Data.Common;
 using World.Data.Models;
 using Xunit;
 
@@ -11,13 +12,13 @@ namespace World.Data.Xml.Tests
         [Fact]
         public void CRUD()
         {
-			CountriesRepository repository = new CountriesRepository("Assets/countries.xml");
+			ICountriesRepository repository = new CountriesRepository("Assets/countries.xml");
 
 			Assert.NotNull(repository);
 			RetrieveByKey(repository);
         }
 
-		private void RetrieveByKey(CountriesRepository repository)
+		private void RetrieveByKey(ICountriesRepository repository)
 		{
 			string key = "dz";
 			string expected_code = "ALG";

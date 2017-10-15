@@ -109,6 +109,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj">
+      <Project>{1DFEEDFB-BA25-4B88-AD98-9B2DFE33F6DF}</Project>
+      <Name>RepositoryBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\World.Data.Common\World.Data.Common.csproj">
+      <Project>{BA5F5D13-7374-4535-9D3C-833E81551B73}</Project>
+      <Name>World.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj">
       <Project>{3EF36995-81CE-492C-B04D-63710A9ABFC5}</Project>
       <Name>World.Data.Models</Name>

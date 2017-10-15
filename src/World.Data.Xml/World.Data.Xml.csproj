@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
+    <Description>World countries data repositories for XML data source.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj" />
+    <ProjectReference Include="..\World.Data.Common\World.Data.Common.csproj" />
     <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj" />
   </ItemGroup>
 

@@ -2,15 +2,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>World countries data repositories.</Description>
-    <Authors>Redouane Sobaihi</Authors>
-    <Company />
-    <Version>2.0.0</Version>
+    <Description>World countries data repositories for Sql data source.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RepositoryBase\src\RepositoryBase\RepositoryBase.csproj" />
+    <ProjectReference Include="..\World.Data.Common\World.Data.Common.csproj" />
     <ProjectReference Include="..\World.Data.Models\World.Data.Models.csproj" />
   </ItemGroup>
   
