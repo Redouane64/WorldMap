@@ -59,9 +59,6 @@ namespace World.Data.Xml
 
         public Country Get(long id)
         {
-            //XDocument xDocument = XDocument.Load(_filename);
-            //XDocument xDocument = XDocument.Load(_stream);
-
             Country country = xDocument.Element("Countries")
                                                 .Elements("Country")
                                                 .Where(e => Int64.Parse(e.Element("Id").Value) == id)
@@ -78,9 +75,6 @@ namespace World.Data.Xml
 
         public IEnumerable<Country> GetAll()
         {
-            //XDocument xDocument = XDocument.Load(_filename);
-            //XDocument xDocument = XDocument.Load(_stream);
-
             List<Country> countries = xDocument.Element("Countries")
                                      .Elements("Country")
                                      .Select(MapToCountry).ToList();
