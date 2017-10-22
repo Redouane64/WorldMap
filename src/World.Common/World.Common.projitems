@@ -14,8 +14,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Assets\countries.xml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\countries.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

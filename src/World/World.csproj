@@ -126,6 +126,8 @@
       <Name>World.Data.Xml</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\World.Common\World.Common.projitems" Label="Shared" />
+  <ItemGroup>
+    <Resource Include="countries.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,10 +15,10 @@ using System.Diagnostics;
 
 namespace World
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MapWindow : Window
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MapWindow : Window
 	{
 		private readonly ICountriesRepository worldRepository;
 		private readonly DoubleAnimation fadeInAnimation;
@@ -38,7 +38,9 @@ namespace World
 				pathItem.MouseLeave += Path_OnMouseLeave;
 			}
 
-			worldRepository = new CountriesRepository("Assets/countries.xml");
+            var resourceInfo = Application.GetResourceStream(new Uri("countries.xml", UriKind.Relative));
+            worldRepository = new CountriesRepository(resourceInfo.Stream);
+
 			fadeInAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeInAnimation"];
 			fadeOutAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeOutAnimation"];
 		}
