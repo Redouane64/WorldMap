@@ -3,16 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:World"
+		xmlns:vm="clr-namespace:World.ViewModels"
         mc:Ignorable="d"
         Title="World" Height="512" Width="1024">
-	<Grid x:Name="mainGrid" Background="{StaticResource MapBackgroundBrush}">
+
+	<Window.Resources>
+		<vm:MapViewModel x:Key="MapViewModel"></vm:MapViewModel>
+	</Window.Resources>
+	<Grid x:Name="mainGrid" 
+		  Background="{StaticResource MapBackgroundBrush}"
+		  DataContext="{StaticResource MapViewModel}">
 
 		<ScrollViewer HorizontalScrollBarVisibility="Auto"
 					  VerticalScrollBarVisibility="Auto"
 					  IsDeferredScrollingEnabled="True">
 			<ScrollViewer.Content>
-				<Binding Source="{StaticResource worldMap}" />
+				<Binding Path="Map"></Binding>
 			</ScrollViewer.Content>
 		</ScrollViewer>
 
@@ -24,7 +32,8 @@
 				HorizontalAlignment="Left"
 				CornerRadius="4"
 				Width="200"
-				Background="#10FF1212">
+				Background="#10FF1212"
+				DataContext="{Binding Country, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
 			<StackPanel Margin="4">
 				<TextBlock x:Name="nameTextBlock"
 						   Margin="8,0"

@@ -8,6 +8,7 @@ using World.Data.Xml;
 using System.Windows.Media.Animation;
 using System;
 using World.Data.Common;
+using World.ViewModels;
 
 #if DEBUG
 using System.Diagnostics;
@@ -15,12 +16,14 @@ using System.Diagnostics;
 
 namespace World
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MapWindow : Window
+	using i = System.Windows.Interactivity;
+
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MapWindow : Window
 	{
-		private readonly ICountriesRepository worldRepository;
+
 		private readonly DoubleAnimation fadeInAnimation;
 		private readonly DoubleAnimation fadeOutAnimation;
 
@@ -36,13 +39,21 @@ namespace World
 			{
 				pathItem.MouseEnter += Path_OnMouseEnter;
 				pathItem.MouseLeave += Path_OnMouseLeave;
-			}
 
-            var resourceInfo = Application.GetResourceStream(new Uri("countries.xml", UriKind.Relative));
-            worldRepository = new CountriesRepository(resourceInfo.Stream);
+				var pathEventTrigger = new i.EventTrigger("MouseEnter");
+				var executeCommandAction = new i.InvokeCommandAction
+				{
+					Command = (mainGrid.DataContext as MapViewModel).GetCountryCommand,
+					CommandParameter = pathItem.Name.ToLower()
+				};
+
+				pathEventTrigger.Actions.Add(executeCommandAction);
+				pathEventTrigger.Attach(pathItem);
+			}
 
 			fadeInAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeInAnimation"];
 			fadeOutAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeOutAnimation"];
+
 		}
 
 		private void Path_OnMouseLeave(object sender, MouseEventArgs e)
@@ -53,23 +64,9 @@ namespace World
 			infoAreaBorder.BeginAnimation(Border.OpacityProperty, fadeOutAnimation);
 		}
 
-		private async void Path_OnMouseEnter(object sender, MouseEventArgs mouseEventArgs)
+		private void Path_OnMouseEnter(object sender, MouseEventArgs mouseEventArgs)
 		{
-			Path path = sender as Path;
-#if DEBUG
-			Debug.WriteLine($"Mouse over {path.Name}");
-			var watch = Stopwatch.StartNew();
-#endif
-			var country = await Task.FromResult(worldRepository.GetByKey(path.Name.ToLower()));
-			if(country != null)
-			{
-				infoAreaBorder.DataContext = country;
-				infoAreaBorder.BeginAnimation(Border.OpacityProperty, fadeInAnimation);
-			}
-#if DEBUG
-			watch.Start();
-			Debug.WriteLine($"Took {watch.Elapsed} to retreive country data from database.");
-#endif
+			infoAreaBorder.BeginAnimation(Border.OpacityProperty, fadeInAnimation);
 		}
 
 	}
