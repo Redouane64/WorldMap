@@ -1,17 +1,12 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
-using World.Data.Xml;
 using System.Windows.Media.Animation;
-using System;
-using World.Data.Common;
 using World.ViewModels;
 
 #if DEBUG
-using System.Diagnostics;
 #endif
 
 namespace World
@@ -27,15 +22,20 @@ namespace World
 		private readonly DoubleAnimation fadeInAnimation;
 		private readonly DoubleAnimation fadeOutAnimation;
 
-		public MapWindow()
+		public MapWindow(MapViewModel viewModel)
 		{
 			InitializeComponent();
 
-			ItemsControl countriesItemsControl = (ItemsControl)mainGrid.Children
-																		.OfType<ScrollViewer>()
-																		.First().Content;
+			DataContext = viewModel;
+			InitializeMapDrawings(viewModel);
 
-			foreach (Path pathItem in countriesItemsControl.Items.OfType<Path>())
+			fadeInAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeInAnimation"];
+			fadeOutAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeOutAnimation"];
+		}
+
+		private void InitializeMapDrawings(MapViewModel viewModel)
+		{
+			foreach (Path pathItem in viewModel.Map.Items.OfType<Path>())
 			{
 				pathItem.MouseEnter += Path_OnMouseEnter;
 				pathItem.MouseLeave += Path_OnMouseLeave;
@@ -43,24 +43,17 @@ namespace World
 				var pathEventTrigger = new i.EventTrigger("MouseEnter");
 				var executeCommandAction = new i.InvokeCommandAction
 				{
-					Command = (mainGrid.DataContext as MapViewModel).GetCountryCommand,
+					Command = viewModel.GetCountryCommand,
 					CommandParameter = pathItem.Name.ToLower()
 				};
 
 				pathEventTrigger.Actions.Add(executeCommandAction);
 				pathEventTrigger.Attach(pathItem);
 			}
-
-			fadeInAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeInAnimation"];
-			fadeOutAnimation = (DoubleAnimation)Application.Current.Resources["opacityFadeOutAnimation"];
-
 		}
 
 		private void Path_OnMouseLeave(object sender, MouseEventArgs e)
 		{
-			if (infoAreaBorder.DataContext == null)
-				return;
-
 			infoAreaBorder.BeginAnimation(Border.OpacityProperty, fadeOutAnimation);
 		}
 

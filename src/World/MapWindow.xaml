@@ -8,14 +8,8 @@
 		xmlns:vm="clr-namespace:World.ViewModels"
         mc:Ignorable="d"
         Title="World" Height="512" Width="1024">
-
-	<Window.Resources>
-		<vm:MapViewModel x:Key="MapViewModel"></vm:MapViewModel>
-	</Window.Resources>
-	<Grid x:Name="mainGrid" 
-		  Background="{StaticResource MapBackgroundBrush}"
-		  DataContext="{StaticResource MapViewModel}">
-
+	<Grid x:Name="mainGrid"
+		  Background="{StaticResource MapBackgroundBrush}">
 		<ScrollViewer HorizontalScrollBarVisibility="Auto"
 					  VerticalScrollBarVisibility="Auto"
 					  IsDeferredScrollingEnabled="True">
@@ -40,21 +34,21 @@
 						   FontSize="20"
 						   FontWeight="Bold"
 						   TextWrapping="Wrap"
-						   Text="{Binding Name}"></TextBlock>
+						   Text="{Binding Name, FallbackValue=N/A}"></TextBlock>
 				<Label FontSize="15"
 					   FontWeight="Light">Population</Label>
 				<TextBlock x:Name="populationTextBlock"
 						   Margin="8,0"
 						   FontSize="14"
 						   FontWeight="SemiBold"
-						   Text="{Binding Population}"></TextBlock>
+						   Text="{Binding Population, FallbackValue=0, StringFormat={}{0:N0}}"></TextBlock>
 				<Label FontSize="15"
 				       FontWeight="Light">Area</Label>
 				<TextBlock x:Name="areaTextBlock"
 				           Margin="8,0"
 				           FontSize="14"
 						   FontWeight="SemiBold"
-						   Text="{Binding Area}"></TextBlock>
+						   Text="{Binding Area, FallbackValue=0, StringFormat={}{0:N0}}"></TextBlock>
 			</StackPanel>
 		</Border>
 		
