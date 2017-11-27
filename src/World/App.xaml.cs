@@ -9,6 +9,9 @@ using World.ViewModels;
 
 using Autofac;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+
 namespace World
 {
 	/// <summary>
@@ -16,6 +19,11 @@ namespace World
 	/// </summary>
 	public partial class App : Application
 	{
+		public App()
+		{
+			AppCenter.LogLevel = LogLevel.Verbose;
+			AppCenter.Start("f15785e4-0ed1-453e-a5a2-a187337048e8", typeof(Analytics));
+		}
 
 		public IContainer Container
 		{
