@@ -3,14 +3,14 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
-using World.Data.Common;
-using World.Data.Xml;
 using World.ViewModels;
 
 using Autofac;
 
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
+using WorldMap.Common.Data.Repositories;
+using WorldMap.Common.Data;
 
 namespace World
 {
@@ -38,7 +38,7 @@ namespace World
 			var builder = new ContainerBuilder();
 
 			builder.RegisterInstance<Stream>(GetResourceStream(new Uri("countries.xml", UriKind.Relative)).Stream);
-			builder.RegisterType<CountriesRepository>()
+			builder.RegisterType<XmlCountriesRepository>()
 					.As<ICountriesRepository>();
 			builder.RegisterInstance<ItemsControl>(Resources["worldMap"] as ItemsControl);
 			builder.RegisterType<MapViewModel>();
