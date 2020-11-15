@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-using World.Data.Models;
+using WorldMap.Common.Models;
 
 namespace WorldMap.Common.Data.Repositories
 {

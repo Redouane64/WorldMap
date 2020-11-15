@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-using World.Data.Models;
-
 using WorldMap.Common.Data.Repositories;
+using WorldMap.Common.Models;
 
 namespace WorldMap.Common.Data.Repositories
 {

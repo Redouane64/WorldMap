@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Xml.Linq;
 
-using World.Data.Models;
+using WorldMap.Common.Models;
 
 namespace WorldMap.Common.Data.Repositories
 {
