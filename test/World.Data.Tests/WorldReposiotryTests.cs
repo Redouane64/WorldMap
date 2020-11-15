@@ -1,11 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using WorldMap.Common.Data;
+using WorldMap.Common.Models;
+
 using Xunit;
 
 namespace World.Data.Xml.Tests
 {
-    public class WorldReposiotryTests
+	using CountriesRepository = WorldMap.Common.Data.Repositories.XmlCountriesRepository;
+
+	public class WorldReposiotryTests
     {
         [Fact]
         public void CRUD()

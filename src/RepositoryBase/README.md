@@ -1,1 +1,0 @@
-### Simple Repository Pattern implementation.

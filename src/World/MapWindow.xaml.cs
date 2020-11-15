@@ -11,7 +11,7 @@ using World.ViewModels;
 
 namespace World
 {
-	using i = System.Windows.Interactivity;
+	using i = Microsoft.Xaml.Behaviors;
 
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml

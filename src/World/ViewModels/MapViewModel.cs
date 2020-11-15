@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using World.Commands;
-using World.Data.Common;
-using World.Data.Models;
+
+using WorldMap.Common.Data;
+using WorldMap.Common.Models;
 
 namespace World.ViewModels
 {

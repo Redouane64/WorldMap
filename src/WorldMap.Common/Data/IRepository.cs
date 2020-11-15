@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace RepositoryBase
+namespace WorldMap.Common.Data
 {
-    public interface IRepository<T> where T : class
+	public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
         T Get(int id);
@@ -18,8 +18,8 @@ namespace RepositoryBase
         void Delete(T entity);
     }
 
-	public interface IRepository<TKey, T> : IRepository<T> where T : class
-	{
-		T Get(TKey id);
-	}
+    public interface IRepository<TKey, T> : IRepository<T> where T : class
+    {
+        T Get(TKey id);
+    }
 }

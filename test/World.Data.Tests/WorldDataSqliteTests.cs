@@ -1,8 +1,11 @@
-using Microsoft.Data.Sqlite;
 using System.Data;
-using World.Data.Common;
-using World.Data.Models;
-using World.Data.Repositories;
+
+using Microsoft.Data.Sqlite;
+
+using WorldMap.Common.Data;
+using WorldMap.Common.Data.Repositories;
+using WorldMap.Common.Models;
+
 using Xunit;
 
 namespace World.Data.Tests
