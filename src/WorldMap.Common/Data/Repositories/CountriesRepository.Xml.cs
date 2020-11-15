@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using World.Data.Models;
-using System.Xml.Linq;
-using System.Linq;
-using World.Data.Common;
 using System.IO;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Xml.Linq;
 
-namespace World.Data.Xml
+using World.Data.Models;
+
+namespace WorldMap.Common.Data.Repositories
 {
-    public class CountriesRepository : ICountriesRepository
+	public class XmlCountriesRepository : ICountriesRepository
     {
         private readonly XDocument xDocument;
 
@@ -17,12 +17,12 @@ namespace World.Data.Xml
         /// Create instance of world countries repository from XML data source.
         /// </summary>
         /// <param name="filename">XML file.</param>
-        public CountriesRepository(string filename)
+        public XmlCountriesRepository(string filename)
         {
             xDocument = XDocument.Load(File.OpenRead(filename));
         }
 
-        public CountriesRepository(Stream stream)
+        public XmlCountriesRepository(Stream stream)
         {
             xDocument = XDocument.Load(stream);
         }
@@ -61,7 +61,7 @@ namespace World.Data.Xml
         {
             Country country = xDocument.Element("Countries")
                                                 .Elements("Country")
-                                                .Where(e => Int64.Parse(e.Element("Id").Value) == id)
+                                                .Where(e => long.Parse(e.Element("Id").Value) == id)
                                                 .Select(MapToCountry)
                                                 .SingleOrDefault();
 
@@ -98,9 +98,9 @@ namespace World.Data.Xml
                 Name = element.Element("Name").Value,
                 Code = element.Element("Code").Value,
                 Key = element.Element("Key").Value,
-                Id = Int64.Parse(element.Element("Id").Value),
-                Area = Int64.Parse(element.Element("Area").Value),
-                Population = Int64.Parse(element.Element("Population").Value),
+                Id = long.Parse(element.Element("Id").Value),
+                Area = long.Parse(element.Element("Area").Value),
+                Population = long.Parse(element.Element("Population").Value),
             };
 
     }

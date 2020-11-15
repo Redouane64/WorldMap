@@ -1,10 +1,13 @@
-﻿using System.Data;
-using System;
-using World.Data.Models;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
-namespace World.Data.Repositories
+using World.Data.Models;
+
+using WorldMap.Common.Data.Repositories;
+
+namespace WorldMap.Common.Data.Repositories
 {
 
 	public partial class CountriesRepository : Repository<long, Country>

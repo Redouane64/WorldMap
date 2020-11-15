@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using World.Data.Models;
-using World.Data.Common;
 
-namespace World.Data.Repositories
+using World.Data.Models;
+
+namespace WorldMap.Common.Data.Repositories
 {
 	public partial class CountriesRepository : ICountriesRepository
 	{
