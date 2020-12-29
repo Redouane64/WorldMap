@@ -10,27 +10,62 @@ using Xunit;
 
 namespace World.Data.Tests
 {
-	public class WorldDataSqliteTests
+	public class WorldDataSqliteTests : IClassFixture<DatabaseFixture>
     {
-		[Fact]
-		public void ShouldGetCountryByKey()
+		public WorldDataSqliteTests(DatabaseFixture fixture)
 		{
-			IDbConnection connection = new SqliteConnection("Data Source=Assets/world.db");
-			ICountriesRepository repository = new CountriesRepository(connection);
-			connection.Open();
+			Fixture = fixture;
+		}
+
+		public DatabaseFixture Fixture { get; }
+
+		private CountriesRepository CreateRepository()
+		{
+			var connection = new CountriesRepository(Fixture.Db);
+			Fixture.Db.Open();
+
+			return connection;
+		}
+
+		[Theory]
+		[InlineData("dz")]
+		public void ShouldGetCountryByKey(string country_key)
+		{
+			ICountriesRepository repository = CreateRepository();
 
 			string expected_country_name = "Algeria";
 			string expected_country_code = "ALG";
-
-			string country_key = "dz";
 
 			Country country = repository.GetByKey(country_key);
 
 			Assert.NotNull(country);
 			Assert.Equal(expected_country_name, country.Name);
 			Assert.Equal(expected_country_code, country.Code);
+		}
 
-			connection.Close();
+		[Theory]
+		[InlineData(27)]
+		public void ShouldGetCountryById(int country_id)
+		{
+			ICountriesRepository repository = CreateRepository();
+
+			string expected_country_name = "Algeria";
+			string expected_country_code = "ALG";
+
+			Country country = repository.Get(country_id);
+
+			Assert.NotNull(country);
+			Assert.Equal(expected_country_name, country.Name);
+			Assert.Equal(expected_country_code, country.Code);
+		}
+
+		[Fact]
+		public void ShouldReturnAllCountries()
+		{
+			ICountriesRepository repository = CreateRepository();
+
+			var countries = repository.GetAll();
+			Assert.NotEmpty(countries);
 		}
 	}
 }
